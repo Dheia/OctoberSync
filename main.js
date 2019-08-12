@@ -1,6 +1,13 @@
+/*!
+ * October Sync
+ * Copyright(c) Saifur Rahman Mohsin
+ * MIT Licensed
+ */
+
 const { app, Menu, Tray } = require('electron')
-const chokidar = require('chokidar');
 const path = require('path')
+const sync = require('./sync')
+const watcher = require('./watcher')
 
 let trayApp = null
 let syncDir = app.getPath('home') + path.sep + 'October'
@@ -13,9 +20,8 @@ function createApp () {
   trayApp.setToolTip('OctoberCMS Sync is running')
   trayApp.setContextMenu(contextMenu)
 
-  chokidar.watch(syncDir).on('all', (event, path) => {
-    console.log(event, path);
-  });
+  sync(syncDir)
+  watch(syncDir)
 }
 
 app.on('ready', createApp)

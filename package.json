@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/SaifurRahmanMohsin/OctoberSync#readme",
   "dependencies": {
-    "electron": "^6.0.1",
-    "chokidar": "^3.0.2"
+    "chokidar": "^3.0.2",
+    "electron": "^6.0.1"
   }
 }
