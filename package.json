@@ -20,6 +20,7 @@
   "homepage": "https://github.com/SaifurRahmanMohsin/OctoberSync#readme",
   "dependencies": {
     "chokidar": "^3.0.2",
-    "electron": "^6.0.1"
+    "electron": "^6.0.1",
+    "electron-settings": "^3.2.0"
   }
 }
