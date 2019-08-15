@@ -10,14 +10,13 @@ const http = require('http');
 
 var syncDir = '' // Where the magic will happen
 
-sync = function(syncDir, dest = '/') {
-
+sync = function(url, syncDir, dest = '/') {
   if (!fs.existsSync(syncDir)){
       fs.mkdirSync(syncDir);
   }
   this.syncDir = syncDir
 
-  const request = net.request('http://sync.web/api/v1/sync?path=' + dest)
+  const request = net.request(url + '/api/v1/sync?path=' + dest)
   request.on('response', (response) => {
     var data = '';
     if ((response.statusCode < 200) && (response.statusCode > 299)) {
@@ -44,7 +43,7 @@ sync = function(syncDir, dest = '/') {
 };
 
 function downloadFile(targetDir, entry) {
-  const request = net.request('http://sync.web/api/v1/download?path=' + entry)
+  const request = net.request(url + '/api/v1/download?path=' + entry)
   const file = fs.createWriteStream(targetDir + entry);
 
   request.on('response', (response) => {

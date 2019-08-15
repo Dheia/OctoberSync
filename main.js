@@ -30,7 +30,8 @@ function createApp () {
     setup.initiate(app)
   } else {
     app.dock.hide()
-    // sync(syncDir)
+    serverUrl = settings.get('app.url')
+    sync(serverUrl, syncDir)
     // watch(syncDir)
   }
 }
